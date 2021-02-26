@@ -3,6 +3,7 @@ defmodule Rocketpay.User do
   import Ecto.Changeset
 
   alias Ecto.Changeset
+  alias Rocketpay.Account
 
   @primary_key {:id, :binary_id, autogenerate: true}
 
@@ -15,6 +16,7 @@ defmodule Rocketpay.User do
     field :password, :string, virtual: true # virtual does not allow to save in DB, it will be received and validated only
     field :password_hash, :string # and the hash is what we will actually save in DB
     field :nickname, :string
+    has_one :account, Account
 
     timestamps()
   end

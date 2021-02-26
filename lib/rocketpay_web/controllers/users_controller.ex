@@ -3,22 +3,14 @@ defmodule RocketpayWeb.UsersController do
 
   alias Rocketpay.User
 
+  action_fallback RocketpayWeb.FallbackController
+
   def create(connection, params) do
-    params
-    |> Rocketpay.create_user()
-    |> handle_response(connection)
-  end
-
-  defp handle_response({:ok, %User{} = user}, connection) do
-    connection
-    |> put_status(:created)
-    |> render("create.json", user: user)
-  end
-
-  defp handle_response(result, connection) do
-    connection
-    |> put_status(:bad_request)
-    |> put_view(RocketpayWeb.ErrorView)
-    |> render("400.json", result: result)
+    # with word will try to create user and if not possible, will return error to action_fallback defined above
+    with {:ok, %User{} = user} <- Rocketpay.create_user(params) do
+      connection
+      |> put_status(:created)
+      |> render("create.json", user: user)
+    end
   end
 end
