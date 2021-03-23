@@ -1,6 +1,6 @@
 defmodule Rocketpay.NumbersTest do
-  use ExUnit.Case
-
+  use ExUnit.Case, async: true
+  # ONLY TO SIMULATE UNIT TESTS
   alias Rocketpay.Numbers, as: Num
 
   describe "sum_numbers_from_file/1" do

@@ -11,7 +11,7 @@ defmodule Rocketpay.Accounts.Deposit do
   defp run_transaction(multi) do
     case Repo.transaction(multi) do
       {:error, _operation, reason, _changes} -> {:error, reason}
-      {:ok, %{account_deposit: account}} -> {:ok, account} # if macthes with the name of transaction, twas a success case
+      {:ok, %{deposit: account}} -> {:ok, account} # if matches with the name of transaction, twas a success case
     end
   end
 end

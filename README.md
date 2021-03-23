@@ -1,19 +1,15 @@
 # Rocketpay
 
-To start your Phoenix server:
+## Next Level Week #4 project
 
-  * Install dependencies with `mix deps.get`
-  * Create and migrate your database with `mix ecto.setup`
-  * Start Phoenix endpoint with `mix phx.server`
+### Simple api to run transactions among users
+- Allow to create users
+- With authenticated routes, it allow transactions (send money, check balance) among users
+- **Some points of attention:** it uses basic_auth, for studying purpose, it should use JWT at least. Also the credentials are testing ones, so that's why it is hardcoded and not in environment variables.
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+### Technologies
+- API Created with Elixir and Phoenix, using Ecto and Postgres DB
+- For tests, it uses _excoveralls_
 
-Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
-
-## Learn more
-
-  * Official website: https://www.phoenixframework.org/
-  * Guides: https://hexdocs.pm/phoenix/overview.html
-  * Docs: https://hexdocs.pm/phoenix
-  * Forum: https://elixirforum.com/c/phoenix-forum
-  * Source: https://github.com/phoenixframework/phoenix
+### Pending points:
+  - [ ]  Cover all application with tests and achieve 100% in coveralls.html [by running `mix test --cover`  or  `mix coveralls.html`] - currently it has 60.6% covered 

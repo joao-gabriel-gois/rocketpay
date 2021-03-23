@@ -23,6 +23,10 @@ config :rocketpay, Rocketpay.Repo,
   migration_primary_key: [type: :binary_id], # to use uuid
   migration_foreign_key: [type: :binary_id]
 
+config :rocketpay, :basic_auth,
+  username: "demo_user", # it should be in a env file
+  password: "demo_password" # we're using basic auth for demo purpose, it should be a jwt at least
+
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",
